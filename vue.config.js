@@ -1,9 +1,9 @@
 module.exports = {
   lintOnSave: false,
-  baseUrl: '/vue-blog/',
+  baseUrl: process.env.NODE_ENV === 'production'
+    ? '/vue-blog/'
+    : '/',
   outputDir: 'docs',
-  assetsDir: 'src',
-  indexPath: 'src/index.html',
   runtimeCompiler: undefined,
   productionSourceMap: undefined,
   parallel: undefined,

@@ -1,23 +1,106 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+
+//vue page compoments 
+import Home from './views/Home/Home.vue'
+
+import Blog from './views/Blog'
+import Article from './views/Article'
+import Demo from './views/Demo'
+import Editor from './views/Editor'
+
+import NotFound from './views/NotFound'
+
+
+//demos
+import DemoCalculator from './views/Demo/childrens/Calculator'
+import DemoThrottle from './views/Demo/childrens/Throttle'
+import DemoDebounce from './views/Demo/childrens/Debounce'
+import DemoDefault from './views/Demo/childrens/Default'
+
 
 Vue.use(Router)
-
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        hideHeader: true
+      }
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/editor',
+      component: Editor,
+      meta: {
+        hideHeader: true,
+        title: "编辑"
+      }
+    },
+    {
+      path: '/blog',
+      component: Blog,
+      meta: {
+        title: "博客",
+        keepalive: true
+      }
+    },
+    {
+      path: '/article/:id',
+      component: Article,
+      meta: {
+        title: "正文"
+      }
+    },
+    {
+      path: '/demo',
+      name: 'Demo',
+      component: Demo,
+      meta: {
+        title: "示例"
+      },
+      children: [
+        {
+          path: "calculator",
+          name: "Calculator",
+          component: DemoCalculator,
+          meta: {
+            title: "仿Mac计算器"
+          },
+        },
+        {
+          path: "throttle",
+          name: "Throttle",
+          component: DemoThrottle,
+          meta: {
+            title: "函数节流"
+          },
+        },
+        {
+          path: "debounce",
+          name: "Debounce",
+          component: DemoDebounce,
+          meta: {
+            title: "函数防抖"
+          },
+        },
+        {
+          path: '*',
+          component: NotFound,
+          meta: {
+            title: "404"
+          }
+        }
+      ]
+    },
+    {
+      path: '*',
+      component: NotFound,
+      meta: {
+        hideHeader: true,
+        title: "404"
+      }
     }
   ]
 })

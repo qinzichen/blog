@@ -1,29 +1,24 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <app-basis>
+    <!--对路由中声明了hideHeader的页面隐藏app-head组件-->
+    <app-head v-if="!$route.meta.hideHeader"/>
+    <app-main>
+      <!--缓存name为blog的组件-->
+      <keep-alive include="blog">
+        <router-view/>
+      </keep-alive>
+    </app-main>
+  </app-basis>
 </template>
+<script>
 
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+import { App, Header, Main, Footer} from "@/layout"
+export default {
+  components: {
+    "app-basis": App,
+    "app-head": Header,
+    "app-main": Main,
+    "app-foot": Footer
   }
 }
-</style>
+</script>

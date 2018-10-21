@@ -1,0 +1,96 @@
+{
+    "blogs": [{
+            "id": "1",
+            "title": "标题1",
+            "summary": "标题1的简介",
+            "content": "<h3>发送GET请求</h3><pre class=\"ql-syntax\" spellcheck=\"false\">// 引入http模块\nconst http = require('http');\n\n// 创建一个请求\nlet request = http.request(\n  {\n    protocol: 'http:',     // 请求的协议\n    host: 'aicoder.com',   // 请求的host\n    port: 80,              // 端口\n    method: 'GET',         // GET请求\n    timeout: 2000,         // 超时时间\n    path: '/'              // 请求路径\n  },\n  res =&gt; {  // 连接成功后，接收到后台服务器返回的响应，回调函数就会被调用一次。\n    // res =&gt; http.IncomingMessage : 是一个Readable Stream\n    res.on('data', data =&gt; {\n      console.log(data.toString('utf8')); // 打印返回的数据。\n    });\n  }\n);\n\n// 设置请求头部\nrequest.setHeader('Cache-Control', 'max-age=0');\n\n\n// 真正的发送请求\nrequest.end();\n</pre><h3>发送get请求的另外一个办法</h3><p>http模块还提供了<code>http.get(options,callback)</code>，用来更简单的处理GET方式的请求，它是<code>http.request()</code>的简化版本，唯一的区别在于http.get自动将请求方法设为GET请求，同时不需要手动调用req.end();</p><pre class=\"ql-syntax\" spellcheck=\"false\">http.get('http://aicoder.com', res =&gt; {\n  res.on('data', data =&gt; {\n    console.log(data.toString('utf8'));\n  });\n});\n</pre><h3>发送post请求</h3><p>且看一个发送post请求的例子。</p><pre class=\"ql-syntax\" spellcheck=\"false\">const http = require('http');\n\nlet request = http.request(\n  {\n    protocol: 'http:',\n    host: 'aicoder.com',\n    port: 80,\n    method: 'POST',\n    timeout: 2000,\n    path: '/'\n  },\n  res =&gt; {\n    res.on('data', data =&gt; {\n      console.log(data.toString('utf8'));\n    });\n  }\n);\n// 发送请求的数据。\nrequest.write('id=3&amp;name=aicoder');\nrequest.end();\n\n</pre><h2>HTTP服务器端</h2><p><code>http.Server</code>实现了简单的web服务器，并把请求和响应也做了封装。</p><p><br></p>",
+            "create_time": "2018-10-10",
+            "tag": ["1", "2"]
+        },
+        {
+            "id": "2",
+            "title": "标题2",
+            "summary": "标题1的简介",
+            "content": "<h1>文章2</h1>",
+            "create_time": "2018-10-11",
+            "tag": ["1", "3"]
+        },
+        {
+            "id": "3",
+            "title": "标题3",
+            "summary": "标题3的简介",
+            "content": "<h1>文章3</h1>",
+            "create_time": "2018-10-12",
+            "tag": ["2"]
+        },
+        {
+            "id": "4",
+            "title": "标题4",
+            "summary": "标题4的简介",
+            "content": "<h1>文章4</h1>",
+            "create_time": "2018-10-11",
+            "tag": ["3"]
+        },
+        {
+            "id": "5",
+            "title": "标题5",
+            "summary": "标题5的简介",
+            "content": "<h1>文章5</h1>",
+            "create_time": "2018-10-11",
+            "tag": ["3"]
+        },
+        {
+            "id": "6",
+            "title": "标题6",
+            "summary": "标题6的简介",
+            "content": "<h1>文章6</h1>",
+            "create_time": "2018-10-11",
+            "tag": ["3"]
+        },
+        {
+            "id": "7",
+            "title": "标题7",
+            "summary": "标题7的简介",
+            "content": "<h1>文章7</h1>",
+            "create_time": "2018-10-11",
+            "tag": ["3"]
+        },
+        {
+            "id": "8",
+            "title": "标题8",
+            "summary": "标题8的简介",
+            "content": "<h1>文章8</h1>",
+            "create_time": "2018-10-11",
+            "tag": ["3"]
+        },
+        {
+            "id": "9",
+            "title": "标题9",
+            "summary": "标题9的简介",
+            "content": "<h1>文章9</h1>",
+            "create_time": "2018-10-11",
+            "tag": ["3"]
+        }
+    ],
+    "tags": [{
+            "id": "1",
+            "name": "Html"
+        },
+        {
+            "id": "2",
+            "name": "Css"
+        },
+        {
+            "id": "3",
+            "name": "JavaScript"
+        },
+        {
+            "id": "4",
+            "name": "Vue"
+        },
+        {
+            "id": "5",
+            "name": "Webpack"
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+
+/**本项目使用的是quill-editor富文本编辑器，本样式文件是为了覆盖插件原有样式**/
+
+.ql-editor {
+    padding: 0;
+    line-height: 1.8;
+}

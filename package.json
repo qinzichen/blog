@@ -1,5 +1,5 @@
 {
-  "name": "blog_client",
+  "name": "vue-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,14 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "highlight.js": "^9.13.1",
+    "quill-image-drop-module": "^1.0.3",
+    "quill-image-resize-module": "^3.0.0",
     "vue": "^2.5.17",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.1",
+    "vuetify": "^1.2.9",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

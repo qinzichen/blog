@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'iconfont';  /* project id 872340 */
+    src: url('//at.alicdn.com/t/font_872340_iippa1i84fg.eot');
+    src: url('//at.alicdn.com/t/font_872340_iippa1i84fg.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_872340_iippa1i84fg.woff') format('woff'),
+    url('//at.alicdn.com/t/font_872340_iippa1i84fg.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_872340_iippa1i84fg.svg#iconfont') format('svg');
+  }
+
+.icon {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100%;
+    // -webkit-overflow-scrolling: touch;  /*ios平滑滚动*/
+}
+
+a {
+    cursor: pointer;
+    color: #2c3e50;
+    &:hover {
+        color: #42b983;
+    }
+}
+time {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+
+
+//媒体查询参数配置
+@screen-xs-max: 768px;
+/* 超小屏幕（手机，小于 768px） */
+
+@screen-sm-min: 768px;
+/* 小屏幕（平板，大于等于 768px） */
+
+@screen-md-min: 992px;
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+
+@screen-lg-min: 1200px;
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+
+@media (max-width: @screen-xs-max) {
+    .hide-xs-min {
+        display: none !important;
+    }
+}
+
+@media (min-width: @screen-xs-max) {
+    .hide-xs-max {
+        display: none !important;
+    }
+}
+

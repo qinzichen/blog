@@ -1,6 +1,6 @@
 module.exports = {
   lintOnSave: false,
-  baseUrl: '/',
+  baseUrl: './',
   outputDir: 'docs',
   assetsDir: undefined,
   runtimeCompiler: undefined,

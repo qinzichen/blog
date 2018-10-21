@@ -1,5 +1,5 @@
 {
-  "name": "vue-test",
+  "name": "vue-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "highlight.js": "^9.13.1",
     "quill-image-drop-module": "^1.0.3",
     "quill-image-resize-module": "^3.0.0",
     "vue": "^2.5.17",
@@ -21,7 +20,8 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",
-    "@vue/cli-plugin-eslint": "^3.0.4",
+    "@vue/cli-plugin-eslint": "^3.0.5",
+    "@vue/cli-plugin-pwa": "^3.0.5",
     "@vue/cli-plugin-unit-jest": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
     "@vue/test-utils": "^1.0.0-beta.20",

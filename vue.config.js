@@ -1,8 +1,8 @@
 module.exports = {
   lintOnSave: false,
-  baseUrl: '/myblog/',
+  baseUrl: './',
   outputDir: 'docs',
-  assetsDir: undefined,
+  assetsDir: '/blog/',
   runtimeCompiler: undefined,
   productionSourceMap: undefined,
   parallel: undefined,

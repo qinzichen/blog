@@ -1,6 +1,6 @@
 module.exports = {
   lintOnSave: false,
-  baseUrl: './',
+  baseUrl: '/vue-blog/',
   outputDir: 'docs',
   assetsDir: 'src',
   indexPath: 'src/index.html',

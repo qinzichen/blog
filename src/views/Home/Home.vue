@@ -5,7 +5,7 @@
 <template>
     <div class="app-home">
         <div class="home-wrap">
-          <img class="avatar" src="../../assets/avatar.png" alt="chen's Blog" title="chen's Blog" width="128" height="128" />
+          <img class="avatar" src="@/assets/avatar.png" alt="chen's Blog" title="chen's Blog" width="128" height="128" />
           <h1 style="font-size: 2rem">CHEN's blog</h1>
           <p>The life will bloom in the darkest place.     by  Alextrasza </p>
           <div style="margin-bottom: 10px;font-size: 1.3rem">
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import NAV_CONFIG from "../../navigation.config.js" //导航配置
+import NAV_CONFIG from "@/navigation.config.js" //导航配置
 
 export default {
     components: {

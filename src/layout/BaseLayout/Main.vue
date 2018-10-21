@@ -37,11 +37,6 @@ export default {
 @screen-sm-min: 768px; /* 小屏幕（平板，大于等于 768px） */
 @screen-md-min: 992px; /* 中等屏幕（桌面显示器，大于等于 992px） */
 @screen-lg-min: 1200px; /* 大屏幕（大桌面显示器，大于等于 1200px） */
-@media (max-width: @screen-xs-max) {
-  .app-main {
-    // padding-top: 58px;
-  }
-}
 
 @media (min-width: 768px){
 .app-main {

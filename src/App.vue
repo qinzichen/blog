@@ -1,24 +1,33 @@
 <template>
-  <app-basis>
-    <!--对路由中声明了hideHeader的页面隐藏app-head组件-->
-    <app-head v-if="!$route.meta.hideHeader"/>
-    <app-main>
+  <component :is="layout" :hideHead="$route.meta.hideHeader">
       <!--缓存name为blog的组件-->
       <keep-alive include="blog">
         <router-view/>
       </keep-alive>
-    </app-main>
-  </app-basis>
+  </component>
 </template>
 <script>
 
-import { App, Header, Main, Footer} from "@/layout"
+// import { App, Header, Main, Footer} from "@/layout"
+import {BaseLayout, AdminLayout} from "@/layouts"
 export default {
   components: {
-    "app-basis": App,
-    "app-head": Header,
-    "app-main": Main,
-    "app-foot": Footer
+    BaseLayout,
+    AdminLayout
+    // "app-basis": App,
+    // "app-head": Header,
+    // "app-main": Main,
+    // "app-foot": Footer
+  },
+  data() {
+    return {
+
+    }
+  },
+  computed: {
+    layout() {
+      return this.$store.state.layout
+    }
   }
 }
 </script>

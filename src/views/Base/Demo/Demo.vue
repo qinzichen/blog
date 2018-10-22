@@ -53,7 +53,7 @@ export default {
                 }else {
                     setTimeout(()=>{
                         this.showDemo = false;
-                    },300)
+                    },500)
                 }
             },
             deep: true

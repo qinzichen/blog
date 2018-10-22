@@ -4,7 +4,7 @@
       <div class="logo">
         <img  src="@/assets/avatar.png" alt="chen's blog" title="chen's blog"/>
       </div>
-      <v-btn class="new-blog"><i class="icon">&#xe684;</i>写博客</v-btn>
+      <v-btn class="new-blog" @click="write"><i class="icon">&#xe684;</i>写博客</v-btn>
       <div class="link-sidepanel hide-xs-max" @click="showSidePanel = true">
         <i class="icon">&#xf038;</i>
       </div>
@@ -78,6 +78,9 @@ export default {
         return window.open(nav.path);
       }
       this.active = index;
+    },
+    write() {
+      this.$router.push('/editor')
     }
   }
 };

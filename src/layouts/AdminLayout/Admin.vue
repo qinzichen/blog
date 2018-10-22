@@ -1,39 +1,38 @@
 <template>
-    <div class="app-container">
+    <div class="admin-container">
         <!--对路由中声明了hideHeader的页面隐藏app-head组件-->
-        <app-head v-if="!hideHead"/>
-        <app-main>
+        <admin-head v-if="!hideHead"/>
+        <admin-main>
             <slot></slot>
-        </app-main>
+        </admin-main>
     </div>
 </template>
 <script>
 import Header from './Header'
 import Main from './Main'
-import Footer from './Footer'
 export default {
     components: {
-        "app-head": Header,
-        "app-main": Main,
-        "app-foot": Footer
+        "admin-head": Header,
+        "admin-main": Main
     },
     props: {
-        head: Boolean
+        hideHead: Boolean
     }
 }
 </script>
 
 
 <style lang="less" scoped>
-.app-container {
+.admin-container {
   height: 100%;
   width: 100%;
-  padding-top: 108px;
+  background-color: #efefef;
+  padding-top: 88px;
 }
 
 @media (max-width: 768px) {
-  .app-container {
-      padding-top: 58px;
+  .admin-container {
+      padding-top: 68px;
   }
 }
 </style>

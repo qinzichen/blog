@@ -1,19 +1,18 @@
 <template>
-  <header class="app-head">
-    <div class="app-nav">
-      <div class="logo">
-        <img  src="@/assets/avatar.png" alt="chen's blog" title="chen's blog"/>
-      </div>
-      <v-btn class="new-blog"><i class="icon">&#xe684;</i>写博客</v-btn>
+  <header class="admin-head">
+    <div class="admin-nav">
       <div class="link-sidepanel hide-xs-max" @click="showSidePanel = true">
         <i class="icon">&#xf038;</i>
       </div>
       <div class="nav-container">
+        <div class="logo">
+          <img  src="@/assets/avatar.png" alt="chen's blog" title="chen's blog"/>
+        </div>
+        <div class="hide-xs-min" style="display:block;line-height:48px;float:left;font-size:18px;padding-left:5px">Chen's Blog</div>
         <nav class="nav-bar hide-xs-min">
           <ul>
-              <li v-for="(n, index) in navConfig" :key="'nav'+index" @click="navClickFn(n, index)" :class="{active: active == index}">
-                <a class="name">{{n.name}}</a>
-                <span class="split" v-show="notLastNav(index)">·</span>
+              <li v-for="(m, index) in menuConfig" :key="'menu'+index" @click="navClickFn(m, index)" :class="{active: active == index}">
+                <a class="name"><i class="icon" v-html="m.icon"></i>{{m.name}}</a>
                 </li>
           </ul>
         </nav>
@@ -28,8 +27,8 @@
         <div class="sidepanel" v-show="showSidePanel">
           <div class="sidepanel-container">
             <ul>
-                <li v-for="(n, index) in navConfig" :key="'nav'+index" @click="navClickFn(n, index)" :class="{active: active == index}">
-                  <i class="icon" v-html="n.icon"></i><a class="name">{{n.name}}</a>
+                <li v-for="(m, index) in menuConfig" :key="'menu'+index" @click="navClickFn(m, index)" :class="{active: active == index}">
+                  <i class="icon" v-html="m.icon"></i><a class="name">{{m.name}}</a>
                   </li>
             </ul>
             <v-btn block class="close-sidepanel" @click="showSidePanel = false">close</v-btn>
@@ -42,15 +41,18 @@
 
 <script>
 import { mapState } from "vuex";
-import NAV_CONFIG from "@/navigation.config.js"; //导航配置
 export default {
-  name: "AppHeader",
+  name: "AdminHeader",
 
   data() {
     return {
       active: 0,
-      navConfig: NAV_CONFIG,
-      showSidePanel: false
+      showSidePanel: false,
+      menuConfig: [
+        {icon:'&#xe684;',name:'编辑',path:'/editor'},
+        {icon:'&#xf038;',name:'统计',path:'/statistics'},
+        {icon:'&#xe60b;',name:'首页',path:'/home'},
+      ]
     };
   },
   computed: {
@@ -58,7 +60,7 @@ export default {
   },
   created() {
     this.$nextTick(() => {
-      this.active = this.navConfig.findIndex(
+      this.active = this.menuConfig.findIndex(
         item => item.path == this.$route.path
       );
     });
@@ -105,8 +107,10 @@ export default {
   opacity: 1;
 }
 
-.app-head {
-  height: 108px;
+.admin-head {
+  border-bottom: 1px solid #cdcdcd;
+  box-shadow: 3px 0 3px rgba(0,0,0,.3);
+  height: 68px;
   min-height: 56px;
   background: #fff;
   position: fixed;
@@ -126,20 +130,17 @@ export default {
     display: table;
     clear: both;
   }
-  .app-nav {
+  .admin-nav {
     max-width: 1440px;
-    padding: 30px 0;
+    padding: 10px 0;
     margin: 0 auto;
 
     .logo {
       float: left;
-      width: 48px;
       height: 48px;
-      margin-left: 10px;
       border-radius: 50%;
 
       > img {
-        width: 100%;
         height: 100%;
         display: block;
         border-radius: inherit;
@@ -161,6 +162,7 @@ export default {
       width: 100%;
       margin-right: auto;
       margin-left: auto;
+      text-align: right;
 
       .nav-bar {
         display: inline-block;
@@ -176,6 +178,7 @@ export default {
           list-style: none;
 
           li {
+            margin-left: 30px;
             display: inline-block;
             a {
               padding: 0 3px;
@@ -183,7 +186,9 @@ export default {
               text-decoration: none;
               color: #353535;
               cursor: pointer;
-
+              .icon {
+                margin-right: 7px;
+              }
               &:hover {
                 color: #42b983;
               }
@@ -284,9 +289,9 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .app-head {
+  .admin-head {
     height: 56px;
-    .app-nav {
+    .admin-nav {
       padding: 5px 0 !important;
     }
     .logo {
@@ -301,14 +306,14 @@ export default {
   }
 }
 
-@media (min-width: 768px) {
-  .nav-container {
-    width: 768px !important;
-  }
-}
 @media (min-width: 992px) {
   .nav-container {
     width: 960px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .nav-container {
+    width: 1200px !important;
   }
 }
 </style>

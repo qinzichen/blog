@@ -26,6 +26,8 @@ Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
   if(to.meta.title) store.commit('setNavTitle', to.meta.title);
+  if(to.meta.admin) store.commit('changeLayout','admin-layout');
+  else store.commit('changeLayout','base-layout');
   next();
 })
 

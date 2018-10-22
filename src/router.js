@@ -1,22 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-//vue page compoments 
-import Home from './views/Home/Home.vue'
 
-import Blog from './views/Blog'
-import Article from './views/Article'
-import Demo from './views/Demo'
-import Editor from './views/Editor'
+//base views
+import Home from './views/Base/Home/Home'
+import Blog from './views/Base/Blog'
+import Article from './views/Base/Article'
+import Demo from './views/Base/Demo'
+
+//admin views
+import Editor from './views/Admin/Editor'
+
 
 import NotFound from './views/NotFound'
 
 
 //demos
-import DemoCalculator from './views/Demo/childrens/Calculator'
-import DemoThrottle from './views/Demo/childrens/Throttle'
-import DemoDebounce from './views/Demo/childrens/Debounce'
-import DemoDefault from './views/Demo/childrens/Default'
+import DemoCalculator from './views/Base/Demo/childrens/Calculator'
+import DemoThrottle from './views/Base/Demo/childrens/Throttle'
+import DemoDebounce from './views/Base/Demo/childrens/Debounce'
+
 
 
 Vue.use(Router)
@@ -39,7 +42,7 @@ export default new Router({
       path: '/editor',
       component: Editor,
       meta: {
-        hideHeader: true,
+        admin: true,
         title: "编辑"
       }
     },

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import NoData from '../../../../components/NoData'
+import NoData from '@/components/NoData'
 export default {
   components: {
     "app-nodata": NoData

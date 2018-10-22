@@ -1,11 +1,9 @@
 @font-face {
-    font-family: 'iconfont';  /* project id 872340 */
+    font-family: 'iconfont';
+    /* project id 872340 */
     src: url('//at.alicdn.com/t/font_872340_iippa1i84fg.eot');
-    src: url('//at.alicdn.com/t/font_872340_iippa1i84fg.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_872340_iippa1i84fg.woff') format('woff'),
-    url('//at.alicdn.com/t/font_872340_iippa1i84fg.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_872340_iippa1i84fg.svg#iconfont') format('svg');
-  }
+    src: url('//at.alicdn.com/t/font_872340_iippa1i84fg.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_872340_iippa1i84fg.woff') format('woff'), url('//at.alicdn.com/t/font_872340_iippa1i84fg.ttf') format('truetype'), url('//at.alicdn.com/t/font_872340_iippa1i84fg.svg#iconfont') format('svg');
+}
 
 .icon {
     font-family: "iconfont" !important;
@@ -32,8 +30,7 @@ html {
 }
 
 body {
-    width: 100%;
-    // -webkit-overflow-scrolling: touch;  /*ios平滑滚动*/
+    width: 100%; // -webkit-overflow-scrolling: touch;  /*ios平滑滚动*/
 }
 
 a {
@@ -43,10 +40,10 @@ a {
         color: #42b983;
     }
 }
+
 time {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-
 
 
 //媒体查询参数配置
@@ -74,3 +71,16 @@ time {
     }
 }
 
+
+/*覆盖文本编辑器默认样式*/
+.quill-editor {
+    height: 100%;
+}
+.ql-container {
+    padding: 10px !important;
+    border: 0 !important;
+    height: calc(100% - 90px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
